@@ -19,8 +19,8 @@ public:
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV 支持
 	void WaitForClose();
-//	WebView m_web;
-	wkeWebView m_web;
+	WebView m_web;
+//	wkeWebView m_web;
 // 实现
 protected:
 	HICON m_hIcon;

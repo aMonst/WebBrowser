@@ -53,8 +53,8 @@ BOOL CWebBrowserDlg::OnInitDialog()
 	RECT rtClient;
 	GetClientRect(&rtClient);
 	rtClient.top += 24;
-//	m_web.Create(rtClient.left, rtClient.top, rtClient.right - rtClient.left, rtClient.bottom - rtClient.top, *this);
-	m_web = wkeCreateWebWindow(WKE_WINDOW_TYPE_CONTROL, *this, rtClient.left, rtClient.top, rtClient.right - rtClient.left, rtClient.bottom - rtClient.top);
+	m_web.Create(rtClient.left, rtClient.top, rtClient.right - rtClient.left, rtClient.bottom - rtClient.top, *this);
+//	m_web = wkeCreateWebWindow(WKE_WINDOW_TYPE_CONTROL, *this, rtClient.left, rtClient.top, rtClient.right - rtClient.left, rtClient.bottom - rtClient.top);
 	wkeOnTitleChanged(m_web, wkeOnTitleChangedCallBack, this);
 	wkeOnURLChanged(m_web, wkeOnURLChangedCallBack, this);
 	wkeOnNavigation(m_web, wkeOnNavigationCallBack, this);

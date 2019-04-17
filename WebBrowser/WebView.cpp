@@ -121,6 +121,8 @@ LRESULT WebView::webViewClassWndProc(UINT uMsg, WPARAM wParam, LPARAM lParam)
 		return OnKillFocus(wParam, lParam);
 	case WM_IME_STARTCOMPOSITION:
 		return OnIMEStartComposition(wParam, lParam);
+	case WM_GETDLGCODE:
+		return DLGC_WANTARROWS | DLGC_WANTALLKEYS | DLGC_WANTCHARS;
 	default:
 		return DefWindowProc(m_hWnd, uMsg, wParam, lParam);
 	}

@@ -48,11 +48,12 @@ BOOL CWebBrowserApp::InitInstance()
 	wkeSetWkeDllPath(L"node.dll");
 
 	wkeInitialize();
-	CWebBrowserDlg *dlg = new CWebBrowserDlg();
-	dlg->Create(IDD_WEBBROWSER_DIALOG);
-	m_pMainWnd = dlg;
-	INT_PTR nResponse = dlg->ShowWindow(SW_SHOW);
-	
+	CWebBrowserDlg dlg = new CWebBrowserDlg();
+	//dlg->Create(IDD_WEBBROWSER_DIALOG);
+	m_pMainWnd = &dlg;
+	//INT_PTR nResponse = dlg->ShowWindow(SW_SHOW);
+	INT_PTR nResponse = dlg.DoModal();
+
 	if (nResponse == IDOK)
 	{
 		// TODO: 在此放置处理何时用
@@ -67,14 +68,14 @@ BOOL CWebBrowserApp::InitInstance()
 	// 由于对话框已关闭，所以将返回 FALSE 以便退出应用程序，
 	//  而不是启动应用程序的消息泵。
 	
-	MSG msg = { 0 };
-	while (GetMessage(&msg, NULL, 0, 0)) 
-	{
-		TranslateMessage(&msg);
-		DispatchMessageW(&msg);
-	}
+	//MSG msg = { 0 };
+	//while (GetMessage(&msg, NULL, 0, 0)) 
+	//{
+	//	TranslateMessage(&msg);
+	//	DispatchMessageW(&msg);
+	//}
 
-	delete dlg;
+	//delete dlg;
 	wkeFinalize();
 	return FALSE;
 }
